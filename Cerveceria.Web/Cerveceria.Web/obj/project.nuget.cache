@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gqVDPUd4vEew6P+19nFea7ElzqahKQlWGY4hwpxn1ZGQekG3/o8tAvocsBOrXZoeh8sX5eHXei47/y96U8jZ0g==",
+  "dgSpecHash": "WgNy+Iog4mcTK7mj/Z8TcvRJaPcI5g459iOKpE0aYuiZnAPhRVN34wzJ6+bJTb3mkVy92f1HBp9i1MmQo/CcHw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\EZE\\Source\\Repos\\Cerveceria.Web\\Cerveceria.Web\\Cerveceria.Web.csproj",
+  "projectFilePath": "C:\\Users\\EZE\\Documents\\TiendaDeCerveceria\\TiendaDeCerveceria\\Cerveceria.Web\\Cerveceria.Web\\Cerveceria.Web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\EZE\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\EZE\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\2.2.0\\microsoft.aspnetcore.cryptography.internal.2.2.0.nupkg.sha512",
