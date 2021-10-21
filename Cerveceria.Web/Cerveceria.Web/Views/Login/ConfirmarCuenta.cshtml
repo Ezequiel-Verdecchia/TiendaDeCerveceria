@@ -1,0 +1,22 @@
+﻿@{
+    Layout = "_layout";
+}
+@model ConfirmacionCuentaViewModel
+
+<div id="container-login">
+    <main role="main" class="pb-3 w-50">
+        <center>
+            <form asp-controller="Login" asp-action="ConfirmarCuenta" method="post">
+                <h1 class="h3 mb-3 font-weight-normal">Confirmación de cuenta - Se ha enviado un email a su cuenta</h1>
+                <div>
+                    <input asp-for="TokenRegistro" class="form-control" placeholder="Ingresá el número de codigo recibido" />
+                    <span asp-validation-for="TokenRegistro" class="text-danger"></span>
+                </div>
+                <input class="btn btn-lg btn-primary btn-block mt-3 " value="Confirmar cuenta" type="submit">
+                <div class="pt-2">
+                    @Html.ValidationMessage("verificacionIncorrecta", new { @class = "text-danger" })
+                </div>
+            </form>
+        </center>
+    </main>
+</div>

@@ -1,0 +1,32 @@
+﻿@{
+    Layout = "_layout";
+}
+@model CambiarContraseñaViewModel
+
+<div id="container-login">
+    <main role="main" class="pb-3 w-50">
+        <center>
+            <form asp-controller="Login" asp-action="CambiarContraseña" method="post">
+                <h1 class="h3 mb-3 font-weight-normal">Cambie su contraseña</h1>
+                <div class="pt-3">
+                    <input asp-for="Password" class="form-control" placeholder="Nueva Contraseña" type="password" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="pt-3">
+                    <input asp-for="ConfirmarPassword" class="form-control" placeholder="Confirmar contraseña" type="password" />
+                    <span asp-validation-for="ConfirmarPassword" class="text-danger"></span>
+                </div>
+                <input class="btn btn-lg btn-primary btn-block mt-3" value="Cambiar" type="submit">
+                <div class="pt-2">
+                    @Html.ValidationMessage("cambiarExitoso", new { @class = "text-success" })
+                </div>
+                <div class="pt-2">
+                    @Html.ValidationMessage("cambiar", new { @class = "text-danger" })
+                </div>
+            </form>
+
+        </center>
+
+
+    </main>
+</div>

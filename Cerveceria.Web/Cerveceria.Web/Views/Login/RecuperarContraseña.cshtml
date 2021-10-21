@@ -1,0 +1,25 @@
+﻿@{    
+    Layout = "_layout";
+}
+@model RecuperarViewModel
+
+<div id="container-login" >
+    <main role="main" class="pb-3 w-50">
+        <center>
+            <form asp-controller="Login" asp-action="RecuperarContraseña" method="post">
+                <h1 class="h3 mb-3 font-weight-normal"><i class="fa fa-avianex"></i>>Recupera tu contraseña</h1>
+                <div>
+                    <input asp-for="Email" class="form-control" placeholder="Ingrese su mail" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <input class="btn btn-lg btn-primary btn-block mt-3 " value="Enviar Correo" type="submit">
+                <div class="pt-2">
+                    @Html.ValidationMessage("registroExitoso", new { @class = "text-success" })
+                </div>
+                <div class="pt-2">
+                    @Html.ValidationMessage("recuperar", new { @class = "text-danger" })
+                </div>
+            </form>
+        </center>
+    </main>
+</div>

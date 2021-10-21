@@ -1,0 +1,100 @@
+﻿@using Cerveceria.Web.Helper
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Cerveceria.Web</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    @*<link rel="stylesheet" href="~/css/site.css" />*@
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="~/css/all.css">
+    <link rel="stylesheet" href="~/css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="header">
+            <div class="container">
+                <div class="navbar">
+                    <div class="logo">
+                        <a asp-controller="Home" asp-action="Index">
+                            <img src="/Upload/Logos/logoHR.jpg" height="60 px">
+                            Hermanos Rocamayo
+                        </a>
+                    </div>
+                    <nav>
+                        <ul id="MenuItems" class="mt-1" style="max-height: 0px;">
+                            <li><a asp-controller="Home" asp-action="Index">Inicio</a></li>
+                            <li><a asp-controller="Home" asp-action="ListarProductos">Productos</a></li>
+                            <li><a href="#">Acerca de nosotros</a></li>
+                            @if (!User.Identity.IsAuthenticated)
+                            {
+                                <li><a asp-controller="Login" asp-action="Index">Cuenta</a></li>
+                            }
+                            else
+                            {
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle px-0" href="#" id="navbarDropdownMenuLink"
+                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cuenta</a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <a class="dropdown-item" asp-controller="Login" asp-action="CambiarContraseña" style="color:black;">Cambiar Contraseña</a>
+                                        <a class="dropdown-item" asp-controller="Login" asp-action="Logout" style="color:black;">Cerrar Sesión</a>
+                                    </div>
+                                </li>
+                            }
+
+                        </ul>
+
+                    </nav>
+                    <a asp-Controller="Home" asp-action="VerCarrito">
+                        <i class="fas fa-shopping-cart mt-2 pt-1" style="color:white"></i>
+                    </a>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <label class="d-none d-lg-block ml-3 pt-1 mt-3 text-white">
+                            Hola @SessionHelper.GetName(User)
+                        </label>
+                    }
+
+                    <i class="ml-3 mt-2 pt-1 fas fa-bars d-block d-lg-none" style="color:white;" onclick="menuToggle()"></i>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <!--- Footer-->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col-2">
+                    <img src="/Upload/Logos/banner1.jpg" alt="" class="img-fluid mb-3">
+                    <p>Nuestro propósito es hacer que el placer y la diversión de tomar una cerveza alegre tu vida...</p>
+                </div>
+                <div class="footer-col-3">
+                </div>
+                <div class="footer-col-4">
+                    <h3>Seguinos en</h3>
+                    <ul>
+                        <li>Instagram</li>
+                        <li>Facebook</li>
+                        <li>Twitter</li>
+                        <li>Youtube</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,39 @@
+﻿@{
+    Layout = "_layout";
+}
+@model RegistroViewModel
+
+<div id="container-login" >
+    <main role="main" class="pb-3 w-50">
+        <center>
+            <form asp-controller="Login" asp-action="Registrar" method="post">
+                <h1 class="h3 mb-3 font-weight-normal">Registrate aquí</h1>
+                <div>
+                    <input asp-for="Nombre" class="form-control" placeholder="Nombre" />
+                    <span asp-validation-for="Nombre" class="text-danger"></span>
+                </div>
+                <div class="pt-3">
+                    <input asp-for="Apellido" class="form-control" placeholder="Apellido" />
+                    <span asp-validation-for="Apellido" class="text-danger"></span>
+                </div>
+                <div class="pt-3">
+                    <input asp-for="Email" class="form-control" placeholder="Email" type="email" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="pt-3">
+                    <input asp-for="Password" class="form-control" placeholder="Contraseña" type="password"/>
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="pt-3">
+                    <input asp-for="ConfirmarPassword" class="form-control" placeholder="Confirmar contraseña" type="password" />
+                    <span asp-validation-for="ConfirmarPassword" class="text-danger"></span>
+                </div>
+                <input class="btn btn-lg btn-primary btn-block mt-3" value="Registrate" type="submit">
+               
+                <div class="pt-2">
+                    @Html.ValidationMessage("registro", new { @class = "text-danger" })
+                </div>
+            </form>
+        </center>
+    </main>
+</div>

@@ -1,0 +1,42 @@
+﻿@{
+    Layout = "_layout";
+}
+@model LoginViewModel
+
+
+    <div id="container-login" >
+        <main role="main" class="pb-3 w-50">
+            <center>
+                <form asp-controller="Login" asp-action="Index" method="post">
+                    <h1 class="h3 mb-3 font-weight-normal">Por favor, ingresa ahora con tu email</h1>
+                    <div>
+                        <input asp-for="Username" class="form-control" placeholder="Ingrese su email" autofocus/>
+                        <span asp-validation-for="Username" class="text-danger"></span>
+                    </div>
+                    <div class="pt-3">
+                        <input asp-for="Password" class="form-control" placeholder="Contraseña" autofocus type="password"/>
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <input class="btn btn-lg btn-primary btn-block mt-3" value="Ingresa a tu cuenta" type="submit">
+                    <div class="pt-2">
+                        @Html.ValidationMessage("login", new { @class = "text-danger" })
+                    </div>
+                </form>
+                <div>
+                    <label>
+                        ¿Aun no eres usuario?
+                    </label>
+                    <label>
+                        Comenza ahora mismo...
+                    </label>
+                    <button onclick="location.href='@Url.Action("Registrar", "Login")'" class="btn btn-outline-primary btn-block mt-3">Registrarme</button>
+                </div>
+                <div>
+                    <label>
+                        ¿Olvidaste tu contraseña? Recuperá tu cuenta <a asp-controller="Login" asp-action="RecuperarContraseña">Acá</a>
+                    </label>
+                </div>
+            </center>
+        </main>
+    </div>
+

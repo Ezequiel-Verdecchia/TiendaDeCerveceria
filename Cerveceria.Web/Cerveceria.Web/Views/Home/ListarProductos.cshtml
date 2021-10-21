@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Productos";
+}
+
+@model ProductosViewModel
+
+<div class="small-container">
+    <div class="row row-2">
+        <h2>Todos los productos</h2>
+    </div>
+
+    <div class="row">
+        @foreach (var producto in Model.listadoProductos)
+        {
+            <div class="col-4" id="ListadoProductos">
+                <a asp-controller="Home" asp-action="DetallarProducto" asp-route-id=@producto.Id><img src="@producto.Imagen" class="rounded"></a>
+                <h4 class="pt-2">@producto.Descripcion</h4>
+                <p>$@producto.Precio</p>
+                <a asp-controller="Home" asp-action="AgregarAlCarrito" asp-route-id=@producto.Id class="btn">Agregar al carrito</a>
+            </div>
+        }
+    </div>
+
+</div>
